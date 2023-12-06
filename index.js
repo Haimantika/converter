@@ -1,4 +1,4 @@
-    class Query {
+ class Query {
         static TYPE_EQUAL = 'equal';
         static TYPE_NOT_EQUAL = 'notEqual';
         static TYPE_LESSER = 'lessThan';

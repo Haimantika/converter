@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Test</title>
-</head>
-<body>
-<script>
-    class Query {
+ class Query {
         static TYPE_EQUAL = 'equal';
         static TYPE_NOT_EQUAL = 'notEqual';
         static TYPE_LESSER = 'lessThan';
@@ -306,6 +299,3 @@
     } catch (error) {
         console.error(error.message);
     }
-</script>
-</body>
-</html>

@@ -21,23 +21,11 @@
         </div>
     </div>
    
-
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            block-size:100dvh; 
-        }
-        .main-content {
-            inline-size:100%;
-            max-inline-size: 700px;
-            margin-inline:auto;
-        }
-        .card {
-
-        }
-    </style>
+    <script src="index.js"></script>
     <script>
+        
+        
+
         function parseQuery() {
             const queryInput = document.getElementById('queryInput').value;
 
@@ -49,8 +37,26 @@
                 document.getElementById('resultOutput').innerText = 'Error: ' + error.message;
             }
         }
+
+        try {
+            let result = Query.parse('equal("name", "John")');
+            console.log(JSON.stringify(result));
+
+            result = Query.parse('equal("name", ["John"])');
+            console.log(JSON.stringify(result));
+
+            result = Query.parse('between("name",5, 10)');
+            console.log(JSON.stringify(result));
+
+            result = Query.parse('equal("name", ["John"])');
+            console.log(JSON.stringify(result));
+
+            result = Query.parse('greaterThan("count", 100)');
+            console.log(JSON.stringify(result));
+        } catch (error) {
+            console.error(error.message);
+        }
     </script>
 </body>
 </html>
-
 

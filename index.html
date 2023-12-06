@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Parser</title>
+    <link rel="stylesheet" href="https://unpkg.com/@appwrite.io/pink" />
+</head>
+<body>
+    <div class="main-content u-flex-vertical u-gap-32">
+        <div class="card">
+            <label for="queryInput">Enter Query:</label>
+            <input class="u-margin-block-start-4" type="text" id="queryInput" placeholder='Enter query here'>
+        
+            <button class="button u-margin-block-start-8" onclick="parseQuery()">Parse Query</button>
+        </div>
+    
+        <div class="container">
+            <h3 class="">Result:</h3>
+            <pre id="resultOutput"></pre>
+        </div>
+    </div>
+   
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            block-size:100dvh; 
+        }
+        .main-content {
+            inline-size:100%;
+            max-inline-size: 700px;
+            margin-inline:auto;
+        }
+        .card {
+
+        }
+    </style>
+    <script>
+        function parseQuery() {
+            const queryInput = document.getElementById('queryInput').value;
+
+            try {
+                const result = Query.parse(queryInput);
+                document.getElementById('resultOutput').innerText = JSON.stringify(result, null, 2);
+            } catch (error) {
+                console.error('Error parsing query:', error.message);
+                document.getElementById('resultOutput').innerText = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
